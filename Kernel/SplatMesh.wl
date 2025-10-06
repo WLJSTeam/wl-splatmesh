@@ -160,14 +160,43 @@ SplatMesh /: MakeBoxes[obj : SplatMesh[format_, state_, r_, meta_], StandardForm
 
 (* Properties READ-ONLY *)
 
-getProperty[s: SplatMesh["SPZ", "Packed",   __], p: ("Centers" | "Opacities" | "RGB" | "Scales" | "Quaternions" | "SH1" | "SH2" | "SH3")] := getProperty[SplatMeshUnpack[s], p]
+getProperty[s: SplatMesh["SPZ", "Packed",   __], p: ("Centers" | "Opacities" | "RGB" | "Scales" | "Quaternions" | "SH1" | "SH2" | "SH3" | "Preview")] := getProperty[SplatMeshUnpack[s], p]
 getProperty[s: SplatMesh["SPZ", "Unpacked", a_Association, _], p: ("Centers" | "Opacities" | "RGB" | "Scales" | "Quaternions" | "SH1" | "SH2" | "SH3")] := a[p]
 getProperty[s: SplatMesh["SPZ", _, _, meta_Association], p_String] := meta[p]
-getProperty[s: SplatMesh["SPZ", _, _, meta_Association], "Properties"] := Join[Keys[meta], {"Container", "Format", "RawData", "Centers", "Opacities", "RGB", "Scales", "Quaternions", "SH1", "SH2", "SH3"}]
+getProperty[s: SplatMesh["SPZ", _, _, meta_Association], "Properties"] := Join[Keys[meta], {"Container", "Format", "RawData", "Centers", "Opacities", "RGB", "Scales", "Quaternions", "SH1", "SH2", "SH3", "Preview"}]
 getProperty[s: SplatMesh["SPZ", _, r_, meta_Association], "RawData"] := r
 getProperty[s: SplatMesh["SPZ", _, _, meta_Association], "Container"] := "SPZ"
 getProperty[s: SplatMesh["SPZ", f_, _, meta_Association], "Format"] := f
 getProperty[s: SplatMesh["SPZ", f_, r_, meta_Association], "Size"] := UnitConvert[Quantity[Switch[Head[r], ByteArray, Length[r], _, ByteCount[r] ], "Bytes"], "Conventional"]
+
+getProperty[s: SplatMesh["SPZ", "Unpacked", a_Association, meta_Association], "Preview"] := Module[{
+    p
+},
+    p = Transpose[{
+        ArrayResample[s["Centers"], {3000, 3}], 
+        Mean /@ ArrayResample[s["Scales"], {3000, 3}], 
+        ArrayResample[s["Opacities"], 3000], 
+        ArrayResample[s["RGB"], {3000, 3}]
+    }];
+
+    p = SortBy[p, Function[x, x[[2]] ] ];
+    p = Transpose /@ Partition[p, 10];
+
+    p = Map[Function[group, {
+        group[[1]], 
+        Mean[group[[2]]], 
+        Mean[group[[3]]], 
+        (*SqB[*)Sqrt[Mean /@ ((# #) &/@ Transpose[group[[4]]])](*]SqB*)
+    }], p];
+
+    With[{g = Table[{
+            PointSize[ 1.5 part[[2]]], Opacity[part[[3]]], RGBColor @@ (part[[4]]), 
+            GraphicsComplex[part[[1]], Point[Range[Length[part[[1]] ] ] ] ]
+        }, {part, p}] // Graphics3D},
+        
+        g
+    ]
+]
 
 SplatMesh[args__][property_String] := getProperty[SplatMesh[args], property]
 

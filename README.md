@@ -20,6 +20,8 @@ This paclet is intentionally tiny and designed to integrate with open-source [Sp
 Plot3D[x y, {x,-1,1}, {y,-1,1}, Epilog->{SplatMesh[<...>]}]
 ```
 
+This also means, that `Scale`, `GeometricTransform`, `Translate` and etc expressions can be applied on `SplatMesh` primitives in the context of `Graphics3D`.
+
 See [**online demo**]() 🕹️
 
 ## Contents
@@ -185,6 +187,7 @@ Names["CoffeeLiqueur`Workshop`SplatMesh`*"]
 		- `["Format"]` — "Packed" or "Unpacked"
 		- `["Container"]` — always "SPZ"
 		- `["Size"]` — Quantity representing the raw byte size when available
+        - `["Preview"]` — generates 3D preview approximating clouds with points reduced to 300 groups of 3000 samples of splats
 		- `["Properties"]` — list of available property keys
 
 If you want to update one of these properties use the following syntax:
