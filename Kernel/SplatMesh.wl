@@ -186,11 +186,12 @@ getProperty[s: SplatMesh["SPZ", "Unpacked", a_Association, meta_Association], "P
         group[[1]], 
         Mean[group[[2]]], 
         Mean[group[[3]]], 
+        (* gamma correction *)
         (*SqB[*)Sqrt[Mean /@ ((# #) &/@ Transpose[group[[4]]])](*]SqB*)
     }], p];
 
     With[{g = Table[{
-            PointSize[ 1.5 part[[2]]], Opacity[part[[3]]], RGBColor @@ (part[[4]]), 
+            PointSize[ 300 part[[2]] part[[2]]], Opacity[part[[3]]], RGBColor @@ (part[[4]]), 
             GraphicsComplex[part[[1]], Point[Range[Length[part[[1]] ] ] ] ]
         }, {part, p}] // Graphics3D},
         
