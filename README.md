@@ -52,21 +52,27 @@ These assets are loaded automatically to the runtime once paclet has required:
 ## Installation
 
 ### Manual
-Copy the paclet folder into one of the paclet directories or add the project to your Wolfram Language search path. The paclet metadata is in `PacletInfo.wl`.
+Copy the paclet folder into one of the paclet directories or add the project to your Wolfram Language search path. 
 
 ```bash
-
+git clone https://github.com/JerryI/wl-splatmesh
+cd wl-splatmesh
 ```
 
 ```mathematica
-
+PacletDirectoryLoad["path to library"]
+Needs["CoffeeLiqueur`Workshop`SplatMesh`"]
 ```
 
 ### Using LPM
-Drop this snippet and evaluate it:
+[LPM](https://github.com/JerryI/wl-localpackages) is unofficial package manager used to install libraries *locally* from Github repositories. Drop this snippet and evaluate it:
 
 ```mathematica
+LPMRepositories[{
+    "Github" -> "https://github.com/JerryI/wl-splatmesh"
+}];
 
+Needs["CoffeeLiqueur`Workshop`SplatMesh`"]
 ```
 
 ## Quick examples
