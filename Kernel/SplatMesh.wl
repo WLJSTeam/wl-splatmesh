@@ -44,7 +44,7 @@ TransformedSplat[s: SplatMesh["SPZ", "Packed", __], o_] := SplatMeshPack[Transfo
 TransformedSplat[   SplatMesh["SPZ", "Unpacked", a_, _], matrix_?MatrixQ] := With[{
     nmatrix = N[matrix]
 }, {
-    data = AssociateTo[a, "Centers" -> Map[Function[p, nmatrix.p], a["Centers"] ] ]
+    data = Append[a, "Centers" -> Map[Function[p, nmatrix.p], a["Centers"] ] ]
 },
     SplatMesh["SPZ", "Unpacked", data, generateMeta[data] ]
 ]
@@ -53,7 +53,7 @@ TransformedSplat[   SplatMesh["SPZ", "Unpacked", a_, _], {matrix_?MatrixQ, v_?Ve
     nmatrix = N[matrix],
     nvector = N[nvector]
 }, {
-    data = AssociateTo[a, "Centers" -> Map[Function[p, nmatrix.p + nvector], a["Centers"] ] ]
+    data = Append[a, "Centers" -> Map[Function[p, nmatrix.p + nvector], a["Centers"] ] ]
 },
     SplatMesh["SPZ", "Unpacked", data, generateMeta[data] ]
 ]

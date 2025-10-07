@@ -209,15 +209,14 @@ Load an example and preview it in a notebook:
 
 
 ```mathematica
-        pacletDir = ;
-		mesh = Import[FileNameJoin[{pacletDir, "Examples","butterfly.spz"}], "SPZ"]
+		mesh = Import[FileNameJoin[{"Examples","butterfly.spz"}], "SPZ"]
 		mesh
 ```
 
 another example:
 
 ```mathematica
-        mesh = Import[FileNameJoin[{pacletDir, "Examples","tap.spz"}], "SPZ"]
+        mesh = Import[FileNameJoin[{"Examples","tap.spz"}], "SPZ"]
 ```
 
 Transform and export:

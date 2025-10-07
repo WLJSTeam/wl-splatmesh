@@ -1,0 +1,28 @@
+Notebook[{Cell["SplatMesh \|01fadf", "Title"], Cell["SplatMesh is a small \
+Wolfram Language [paclet](https://github.com/JerryI/wl-splatmesh) for \
+importing, manipulating, and exporting Gaussian splatting meshes (`.spz` \
+files). It provides a compact in-memory representation of splats (centers, \
+scales, orientations, color and opacity data) using [SPZ \
+format](https://github.com/nianticlabs/spz), extends default `Import`, \
+`Export` expressions, allows bulk operations, simple transformations, and a \
+lightweight preview using Wolfram Standard Library.\n\n
+\n\nhttps://github.com/JerryI/wl-splatmesh", 
+   "Text"], 
+  Cell["Load the library\n\n*if you run it from examples directory*", 
+   "Text"], Cell["PacletDirectoryLoad[NotebookDirectory[]]; ", "Input"], 
+  Cell["Get[\"CoffeeLiqueur`Workshop`SplatMesh`\"]", "Input"], 
+  Cell["Import a butterfly", "Text"], 
+  Cell[
+   "mesh = Import[FileNameJoin[{\"Examples\", \"butterfly.spz\"}], \"SPZ\"]", 
+   "Input"], Cell["Show properties and a preview using 3D points", "Text"], 
+  Cell["mesh[\"Properties\"]", "Input"], Cell["mesh[\"Preview\"]", "Input"], 
+  Cell["Transformations", "Section"], Cell["Apply rotation matrix:", "Text"], 
+  Cell[
+   "rotated = TransformedSplat[mesh, N[RotationMatrix[Pi/2, {1, 0, 0}]]]; ", 
+   "Input"], Cell["Export transformed model", "Text"], 
+  Cell["Export[\"butterfly_rotated.spz\", rotated, \"SPZ\"]", "Input"], 
+  Cell["Append more splats to a mesh", "Text"], 
+  Cell["Append[mesh, {{0., 0., 0.}, {0.01, 0.1, 0.9}, {0., 0., 0., 1.}, 1., \
+{1., 0., 0.}}]", "Input"], Cell[":::tip\nSee \
+[README.md](https://github.com/JerryI/wl-splatmesh) for more API \
+features\n:::", "Text"]}]
