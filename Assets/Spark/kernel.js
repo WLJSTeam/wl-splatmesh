@@ -13,6 +13,7 @@ core.SplatMesh = async (args, env) => {
     await p.promise;
 
     splat.rotateX(Math.PI/2.0);
+    splat.rotateY(-Math.PI/2.0);
 
     const THREE = interpretate.shared.THREE.THREE;
 
