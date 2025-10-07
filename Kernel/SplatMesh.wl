@@ -7,14 +7,10 @@ SplatMeshPack::usage = "SplatMeshPack[s_SplatMesh] returns an packed SplatMesh"
 SplatMeshUnpack::usage = "SplatMeshUnpack[s_SplatMesh] returns an unpacked SplatMesh ready for post-processing"
 SplatMeshPackedQ::usage = "SplatMeshPackedQ[s_SplatMesh] returns True if SplatMesh is packed"
 
+SplatMeshResample::usage = "SplatMeshResample[s_SplatMesh, n_Integer] resamples SplatMesh s using binned method down to n splats"
 TransformedSplat::usage = "TransformedSplat[s_SplatMesh, func_] applies func on s\r\nTransformedSplat[s_SplatMesh, matrix_] applies 3x3 matrix to centers of splat\r\nTransformedSplat[s_SplatMesh, {m,v}] applies 3x3 m matrix and translates by vector v"
 
 Begin["`Private`"]
-
-Unprotect[SplatMesh]
-Unprotect[getProperty]
-ClearAll[getProperty]
-ClearAll[SplatMesh]
 
 (* Packing/Unpacking *)
 
@@ -82,6 +78,28 @@ TransformedSplat[ SplatMesh["SPZ", "Unpacked", a_, _], function_] := Module[{
             SplatMesh["SPZ", "Unpacked", new, generateMeta[new] ]
         ]
     ]
+]
+
+
+(* resampling *)
+
+
+SplatMeshResample[s_SplatMesh, n_Integer] := (Message[SplatMeshResample::toolow]; $Failed) /; n < 3000
+
+SplatMeshResample[s: SplatMesh["SPZ", "Packed", a_, _], n_Integer] := SplatMeshPack[SplatMeshResample[SplatMeshUnpack[s], n] ]
+SplatMeshResample[s: SplatMesh["SPZ", "Unpacked", a_, _], n_Integer] := Module[{data = a},
+
+    data["Centers"] = ArrayResample[data["Centers"], {n, 3}];
+    data["Scales"] = ArrayResample[data["Scales"], {n, 3}];
+    data["Quaternions"] = ArrayResample[data["Quaternions"], {n, 4}];
+    data["Opacities"] = ArrayResample[data["Opacities"], n];
+    data["RGB"] = ArrayResample[data["RGB"], {n, 3}];
+    data["SH1"] = If[data["SH1"] === Null, Null, ArrayResample[data["SH1"], {n, Length[data["SH1"][[1]]]}] ];
+    data["SH2"] = If[data["SH2"] === Null, Null, ArrayResample[data["SH2"], {n, Length[data["SH2"][[1]]]}] ];
+    data["SH3"] = If[data["SH3"] === Null, Null, ArrayResample[data["SH3"], {n, Length[data["SH3"][[1]]]}] ];
+    data["NumSplats"] = n;
+
+    SplatMesh["SPZ", "Unpacked", data, generateMeta[data] ]
 ]
 
 (* Push new splats *)
@@ -179,23 +197,24 @@ getProperty[s: SplatMesh["SPZ", "Unpacked", a_Association, meta_Association], "P
         ArrayResample[s["RGB"], {3000, 3}]
     }];
 
-    p = SortBy[p, Function[x, x[[2]] ] ];
+    p = SortBy[p, Function[x, ColorConvert[RGBColor @@ (x[[4]]), "Hue"]//First  ] ];
     p = Transpose /@ Partition[p, 10];
 
     p = Map[Function[group, {
-        group[[1]], 
+        {-#[[3]], #[[1]], -#[[2]]} &/@ group[[1]], 
         Mean[group[[2]]], 
         Mean[group[[3]]], 
-        (* gamma correction *)
-        (*SqB[*)Sqrt[Mean /@ ((# #) &/@ Transpose[group[[4]]])](*]SqB*)
+        group[[4,1]]
     }], p];
 
+    p[[All, 2]] = Rescale[p[[All, 2]], {0,1}];
+
     With[{g = Table[{
-            PointSize[ 300 part[[2]] part[[2]]], Opacity[part[[3]]], RGBColor @@ (part[[4]]), 
+            PointSize[ 500 part[[2]] part[[2]] ], Opacity[part[[3]]], RGBColor @@ (part[[4]]), 
             GraphicsComplex[part[[1]], Point[Range[Length[part[[1]] ] ] ] ]
-        }, {part, p}] // Graphics3D},
+        }, {part, p}]},
         
-        g
+        Graphics3D[g]
     ]
 ]
 

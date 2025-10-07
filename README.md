@@ -22,6 +22,10 @@ Plot3D[x y, {x,-1,1}, {y,-1,1}, Epilog->{SplatMesh[<...>]}]
 
 This also means, that `Scale`, `GeometricTransform`, `Translate` and etc expressions can be applied on `SplatMesh` primitives in the context of `Graphics3D`.
 
+![tap on Plot3D](./Images/tap.png)
+
+*Captured on iPhone and imported directly to WLJS*
+
 See [**online demo**]() 🕹️
 
 ## Contents
@@ -157,6 +161,9 @@ Names["CoffeeLiqueur`Workshop`SplatMesh`*"]
 - `SplatMeshPackedQ[s_SplatMesh]`
 	- Returns True when the mesh is in packed form, False otherwise.
 
+- `SplatMeshResample[s_SplatMesh, n_Integer]`
+	- Returns downsampled `SplatMesh` with `n` splats in total using basic binned method
+
 - `TransformedSplat[s_SplatMesh, transform]`
 	- transform can be:
 		- a 3x3 numeric matrix — multiplies centers by matrix
@@ -210,7 +217,7 @@ Load an example and preview it in a notebook:
 another example:
 
 ```mathematica
-        mesh = Import[FileNameJoin[{pacletDir, "Examples","hornedlizard.spz"}], "SPZ"]
+        mesh = Import[FileNameJoin[{pacletDir, "Examples","tap.spz"}], "SPZ"]
 ```
 
 Transform and export:
@@ -228,7 +235,7 @@ Append splats programmatically:
 ```
 
 ## License and credits
-- 3D model `hornedlizard.spz`: [Niantic Labs](https://github.com/nianticlabs), MIT
+- 3D model `tap.spz` was scanned by @JerryI in a shower, PD
 - 3D model `butterfly.spz`: [Spark.js](https://sparkjs.dev/), MIT
 - 3D rendering Javascript library `spark.js`: [Spark.js](https://sparkjs.dev/), MIT
 

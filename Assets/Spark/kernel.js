@@ -12,6 +12,8 @@ core.SplatMesh = async (args, env) => {
     const splat = new SplatMesh({ fileBytes:  payload, onLoad: () => p.resolve()});
     await p.promise;
 
+    splat.rotateX(Math.PI/2.0);
+
     const THREE = interpretate.shared.THREE.THREE;
 
     const box = splat.getBoundingBox();
