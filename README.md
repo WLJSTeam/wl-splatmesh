@@ -7,7 +7,7 @@ SplatMesh is a small Wolfram Language paclet for importing, manipulating, and ex
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
 ## Supported Environments
-- [x] [Mathematica](https://www.wolfram.com/mathematica/)
+- [x] [Mathematica](https://www.wolfram.com/mathematica/) (no 3D render, only point clouds)
 - [x] [WolframScript](https://www.wolfram.com/engine/) *Freeware!*
 - [x] [WLJS Notebook](https://wljs.io/) *Freeware!*
 
@@ -178,6 +178,12 @@ Names["CoffeeLiqueur`Workshop`SplatMesh`*"]
 	- Works for packed meshes by unpacking and repacking automatically.
 	- Returns `$Failed` and emits `TransformedSplat::badfunction` if the supplied function doesn't return the expected shape.
 
+- `SplatMeshFilter[s_SplatMesh, criFunction]`
+	- `criFunction` can be:
+		- a function with signature `(index, center, scale, quaternion, opacity, rgb)` returning `True` or `False`
+	- Works for packed meshes by unpacking and repacking automatically.
+	- Returns a filtered mesh of splats	
+
 - `Append[s_SplatMesh, data]`
 	- Overloaded `Append` handler on the SplatMesh head.
 	- `Append[s, splat]` accepts a single splat or a list of splats in the shape: {center, scale, quaternion, opacity, rgb} where
@@ -201,6 +207,7 @@ Names["CoffeeLiqueur`Workshop`SplatMesh`*"]
 		- `["Container"]` — always "SPZ"
 		- `["Size"]` — Quantity representing the raw byte size when available
         - `["Preview"]` — generates 3D preview approximating clouds with points reduced to 300 groups of 3000 samples of splats
+		- `["PreviewGeometry"]` - generates 3D preview and returns primitives
 		- `["Properties"]` — list of available property keys
 
 If you want to update one of these properties use the following syntax:

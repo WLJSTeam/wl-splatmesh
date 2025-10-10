@@ -226,7 +226,7 @@ getProperty[s: SplatMesh["SPZ", "Unpacked", a_Association, meta_Association], "P
     p = Transpose /@ Partition[p, 10];
 
     p = Map[Function[group, {
-        {-#[[3]], #[[1]], -#[[2]]} &/@ group[[1]], 
+        {#[[3]], -#[[1]], #[[2]]} &/@ group[[1]], 
         Mean[group[[2]]], 
         Mean[group[[3]]], 
         group[[4,1]]
