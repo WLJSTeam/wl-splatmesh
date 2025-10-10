@@ -9,6 +9,7 @@ SplatMeshPackedQ::usage = "SplatMeshPackedQ[s_SplatMesh] returns True if SplatMe
 
 SplatMeshResample::usage = "SplatMeshResample[s_SplatMesh, n_Integer] resamples SplatMesh s using binned method down to n splats"
 TransformedSplat::usage = "TransformedSplat[s_SplatMesh, func_] applies func on s\r\nTransformedSplat[s_SplatMesh, matrix_] applies 3x3 matrix to centers of splat\r\nTransformedSplat[s_SplatMesh, {m,v}] applies 3x3 m matrix and translates by vector v"
+SplatMeshFilter::usage = "SplatMeshFilter[s_SplatMesh, func_] filters splats based on func criteria"
 
 Begin["`Private`"]
 
@@ -80,6 +81,28 @@ TransformedSplat[ SplatMesh["SPZ", "Unpacked", a_, _], function_] := Module[{
     ]
 ]
 
+SplatMeshFilter[s: SplatMesh["SPZ", "Packed", __], o_] := SplatMeshPack[SplatMeshFilter[SplatMeshUnpack[s], o] ]
+
+SplatMeshFilter[ SplatMesh["SPZ", "Unpacked", a_, _], function_] := Module[{
+},
+                                (* this sucks. JIT won't be involved *)
+    With[{indexes = MapThread[If[TrueQ[function[##] ], #1, Nothing]&, {Range[Length[a["Centers"] ] ], a["Centers"], a["Scales"], a["Quaternions"], a["Opacities"], a["RGB"]}]},
+        With[{
+            new = Join[a, Association[
+                "Centers"->a["Centers"][[indexes]], 
+                "Opacities"->a["Opacities"][[indexes]], 
+                "RGB"->a["RGB"][[indexes]], 
+                "Scales"->a["Scales"][[indexes]], 
+                "Quaternions"->a["Quaternions"][[indexes]],
+                "SH1" -> If[a["SH1"] === Null, Null, a["SH1"][[indexes]]],
+                "SH2" -> If[a["SH2"] === Null, Null, a["SH3"][[indexes]]],
+                "SH3" -> If[a["SH3"] === Null, Null, a["SH3"][[indexes]]]
+            ] ]
+        },
+            SplatMesh["SPZ", "Unpacked", new, generateMeta[new] ]
+        ]
+    ]
+]
 
 (* resampling *)
 
@@ -178,16 +201,16 @@ SplatMesh /: MakeBoxes[obj : SplatMesh[format_, state_, r_, meta_], StandardForm
 
 (* Properties READ-ONLY *)
 
-getProperty[s: SplatMesh["SPZ", "Packed",   __], p: ("Centers" | "Opacities" | "RGB" | "Scales" | "Quaternions" | "SH1" | "SH2" | "SH3" | "Preview")] := getProperty[SplatMeshUnpack[s], p]
+getProperty[s: SplatMesh["SPZ", "Packed",   __], p: ("Centers" | "Opacities" | "RGB" | "Scales" | "Quaternions" | "SH1" | "SH2" | "SH3" | "Preview" | "PreviewGeometry")] := getProperty[SplatMeshUnpack[s], p]
 getProperty[s: SplatMesh["SPZ", "Unpacked", a_Association, _], p: ("Centers" | "Opacities" | "RGB" | "Scales" | "Quaternions" | "SH1" | "SH2" | "SH3")] := a[p]
 getProperty[s: SplatMesh["SPZ", _, _, meta_Association], p_String] := meta[p]
-getProperty[s: SplatMesh["SPZ", _, _, meta_Association], "Properties"] := Join[Keys[meta], {"Container", "Format", "RawData", "Centers", "Opacities", "RGB", "Scales", "Quaternions", "SH1", "SH2", "SH3", "Preview"}]
+getProperty[s: SplatMesh["SPZ", _, _, meta_Association], "Properties"] := Join[Keys[meta], {"Container", "Format", "RawData", "Centers", "Opacities", "RGB", "Scales", "Quaternions", "SH1", "SH2", "SH3", "Preview", "PreviewGeometry"}]
 getProperty[s: SplatMesh["SPZ", _, r_, meta_Association], "RawData"] := r
 getProperty[s: SplatMesh["SPZ", _, _, meta_Association], "Container"] := "SPZ"
 getProperty[s: SplatMesh["SPZ", f_, _, meta_Association], "Format"] := f
 getProperty[s: SplatMesh["SPZ", f_, r_, meta_Association], "Size"] := UnitConvert[Quantity[Switch[Head[r], ByteArray, Length[r], _, ByteCount[r] ], "Bytes"], "Conventional"]
 
-getProperty[s: SplatMesh["SPZ", "Unpacked", a_Association, meta_Association], "Preview"] := Module[{
+getProperty[s: SplatMesh["SPZ", "Unpacked", a_Association, meta_Association], "PreviewGeometry"] := Module[{
     p
 },
     p = Transpose[{
@@ -214,9 +237,11 @@ getProperty[s: SplatMesh["SPZ", "Unpacked", a_Association, meta_Association], "P
             GraphicsComplex[part[[1]], Point[Range[Length[part[[1]] ] ] ] ]
         }, {part, p}]},
         
-        Graphics3D[g]
+        g
     ]
 ]
+
+getProperty[s: SplatMesh["SPZ", "Unpacked", a_Association, meta_Association], "Preview"] :=  Graphics3D[getProperty[s, "PreviewGeometry"] ]
 
 SplatMesh[args__][property_String] := getProperty[SplatMesh[args], property]
 
