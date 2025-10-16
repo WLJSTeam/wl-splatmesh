@@ -1,8 +1,7 @@
-<|"Notebook" -> <|"Controller" -> "a6b2f558-3d60-4100-b8b7-58c4a283aa29", 
+<|"Notebook" -> <|"Controller" -> "75c7b85b-e47a-42a9-9a23-858598d7d08e", 
    "FocusedCell" -> CoffeeLiqueur`Notebook`Cells`CellObj[
-     CoffeeLiqueur`Notebook`Cells`CellObj`$293], 
-   "MessangerChannel" -> Messanger, "ModalsChannel" -> 
-    "76969849-3ac7-4175-bd06-97218c1b951d", 
+     CoffeeLiqueur`Notebook`Cells`CellObj`$93], "MessangerChannel" -> 
+    Messanger, "ModalsChannel" -> "d304a791-09fc-43e9-8d5d-a74d0a06e16e", 
    "Objects" -> <|"fe1ef805-2bab-47da-aeba-662ccf43adba" -> 
       <|"Public" -> Hold[Graphics[{PointSize[0.003], RGBColor[0.880722, 
             0.611041, 0.142051], GraphicsComplex[{{233.67289615842884, 
@@ -17695,7 +17694,8 @@ interpretate(n[1],t))throw\"SplatMesh must be packed\";const e=await \
 interpretate(n[2],t);if(!(e instanceof ArrayBuffer))throw\"SplatMesh does not \
 have ByteArray\";SplatMesh||(SplatMesh=await loadSplat());const A=new \
 Deferred,s=new SplatMesh({fileBytes:e,onLoad:()=>A.resolve()});await \
-A.promise;const a=interpretate.shared.THREE.THREE,r=s.getBoundingBox(),i=new \
+A.promise;s.rotateX(Math.PI/2.0);s.rotateY(-Math.PI/2.0);const \
+a=interpretate.shared.THREE.THREE,r=s.getBoundingBox(),i=new \
 a.Box3Helper(r,16776960);return \
 i.material.opacity=0,i.material.visible=!1,t.local.splat=s,t.local.helper=i,t\
 .mesh.add(i),t.mesh.add(s),s},core.SplatMesh.destroy=(n,t)=>{t.local.splat.di\
@@ -17705,10 +17705,10 @@ supported\"},core.SplatMesh.virtual=!0,core[\"CoffeeLiqueur`Workshop`SplatMes\
 h`\"]=core.SplatMesh;"}|>, "Symbols" -> <||>, 
    "TOC" -> {CoffeeLiqueur`Extensions`TOC`Private`heading[1, 
       "SplatMesh \|01fadf", CoffeeLiqueur`Notebook`Cells`CellObj[
-       CoffeeLiqueur`Notebook`Cells`CellObj`$290]], 
+       CoffeeLiqueur`Notebook`Cells`CellObj`$88]], 
      CoffeeLiqueur`Extensions`TOC`Private`heading[2, 
       "Filtering Gaussian Splats", CoffeeLiqueur`Notebook`Cells`CellObj[
-       CoffeeLiqueur`Notebook`Cells`CellObj`$296]]}|>, 
+       CoffeeLiqueur`Notebook`Cells`CellObj`$97]]}|>, 
  "Cells" -> {<|"Data" -> ".md\n# SplatMesh \|01fadf\nSplatMesh is a small \
 Wolfram Language [paclet](https://github.com/JerryI/wl-splatmesh) for \
 importing, manipulating, and exporting Gaussian splatting meshes (`.spz` \
@@ -17755,10 +17755,10 @@ fill=\"currentColor\"><path d=\"m46.1 0c-25.5 0-46.1 20.6-46.1 46.1 0 20.4 \
 \n\nhttps://github.com/JerryI/wl-splatmesh\n\nCompatible with:\n- \
 ==Mathematica== (no 3D render, only points preview)\n- ==WLJS Notebook==", 
     "Display" -> "codemirror", "Hash" -> 
-     "98212ae5-227b-4ba4-bb54-11f123589328", "Invisible" -> False, 
+     "c0223c3e-fdb7-47a6-ab26-d5d8ffdb3b0b", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, 
     "PublicFields" -> {"Properties"}, "State" -> "Idle", "Type" -> "Input", 
-    "UID" -> Null, "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "UID" -> Null, "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> "# SplatMesh \|01fadf\nSplatMesh is a small Wolfram Language \
 [paclet](https://github.com/JerryI/wl-splatmesh) for importing, manipulating, \
 and exporting Gaussian splatting meshes (`.spz` files). It provides a compact \
@@ -17804,53 +17804,53 @@ fill=\"currentColor\"><path d=\"m46.1 0c-25.5 0-46.1 20.6-46.1 46.1 0 20.4 \
 \n\nhttps://github.com/JerryI/wl-splatmesh\n\nCompatible with:\n- \
 ==Mathematica== (no 3D render, only points preview)\n- ==WLJS Notebook==", 
     "Display" -> "markdown", "Hash" -> 
-     "cb70e002-0dd8-41cb-915e-503e46c7dbdf", "Invisible" -> False, 
+     "6b25b90f-bd36-4fdc-93b1-3607210201f8", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> 
      ".md\nLoad the library\n\n*if you run it from examples directory*", 
     "Display" -> "codemirror", "Hash" -> 
-     "a02c51b6-9201-411a-8661-63474e88f05a", "Invisible" -> False, 
+     "6465cfa4-5478-4cd7-9ed2-7b54701fd9b1", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, 
     "PublicFields" -> {"Properties"}, "State" -> "Idle", "Type" -> "Input", 
-    "UID" -> Null, "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "UID" -> Null, "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> "Load the library\n\n*if you run it from examples directory*", 
     "Display" -> "markdown", "Hash" -> 
-     "f80cc464-2df5-4418-86ae-e08def97e193", "Invisible" -> False, 
+     "6a27dbac-bad7-4fa8-a71f-7b110ae64933", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> "PacletDirectoryLoad[NotebookDirectory[]];", 
     "Display" -> "codemirror", "Hash" -> 
-     "ff875eff-4375-4434-ab8b-50bff8e211fe", "Invisible" -> False, 
+     "80bfd115-ea79-4f4c-8ed5-8d45f0da6f5f", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Input", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> "<<CoffeeLiqueur`Workshop`SplatMesh`", 
     "Display" -> "codemirror", "Hash" -> 
-     "6dd7eb76-d95d-4ef4-96c9-f58a73270643", "Invisible" -> False, 
+     "786f1c73-b5cd-4e75-899a-30cfa9865784", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Input", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> ".md\n## Filtering Gaussian Splats\nLet's import a messy scene \
 scanned with Scaniverse App:", "Display" -> "codemirror", 
-    "Hash" -> "789b316a-d112-4655-8d11-16c51ae91fff", "Invisible" -> False, 
+    "Hash" -> "2482e327-2494-49e2-8793-0a5ad5dd92ce", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, 
     "PublicFields" -> {"Properties"}, "State" -> "Idle", "Type" -> "Input", 
-    "UID" -> Null, "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "UID" -> Null, "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> "## Filtering Gaussian Splats\nLet's import a messy scene \
 scanned with Scaniverse App:", "Display" -> "markdown", 
-    "Hash" -> "117b3d14-5aff-44e9-a131-db785d24dc80", "Invisible" -> False, 
+    "Hash" -> "4619c162-c473-49b4-896e-7da1a96e20ac", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> "mesh = Import[FileNameJoin[{\"attachments\", \"Untitled \
 scan-663.spz 2\"}], \"SPZ\"]", "Display" -> "codemirror", 
-    "Hash" -> "d0fb1674-31a2-48e4-a607-59204d664b31", "Invisible" -> False, 
+    "Hash" -> "46dba794-1049-4a57-82e9-df510673f83d", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Input", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> "(*VB[*)BoxForm`temporalStorage$228770(*,*)(*\"1:eJxdVMeO41YAW\
 6QAQb4i2dPMOIBldQfYg3ovluRnSYs9qDw1q1nNkn4+8eSYC0ESPBEg/4w7J/v5y5cv4+8vENJy6g\
 ZQwqf7z8t0+zqaDDgW398+APv94/2Pt4+/Pt7fPr6e/obqLoJ0tpqduWApuUSP2wFYvaftN/t2ubr\
@@ -17869,65 +17869,65 @@ omkzdhw4+qUskrPVNteeYl1rqK2yOLFMFs5QLN9JJWxScyqmne2nRaK7R9ZmXd8zl3bOBFPsDpLJy\
 xHBeVw2IYdgN1duwvLRa+ehSI1s618QqMMP/27evnvn8A9uP9R/bT5y/88gJnrqH72yeBUWq19faf\
 6w0z/F/m80RcWMNkiuIajr++5GtVI/wX8Rtslg==\"*)(*]VB*)", 
     "Display" -> "codemirror", "Hash" -> 
-     "a5be6b36-a8fe-4b9d-b104-20a7f60142b4", "Invisible" -> False, 
+     "21cf4d7e-e64a-4961-a4f6-01a180798618", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> ".md\nNext step is to render it and mask parts of interest \
 with a simple cylinder primitive:", "Display" -> "codemirror", 
-    "Hash" -> "632a18a4-1f4f-4f9d-b79a-9fe6f62b55ae", "Invisible" -> False, 
+    "Hash" -> "c104b0f9-2657-4da7-8162-8415a5e41dfb", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, 
     "PublicFields" -> {"Properties"}, "State" -> "Idle", "Type" -> "Input", 
-    "UID" -> Null, "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "UID" -> Null, "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> "Next step is to render it and mask parts of interest with a \
 simple cylinder primitive:", "Display" -> "markdown", 
-    "Hash" -> "547a7a75-cbc4-492b-8a15-9e57f773f772", "Invisible" -> False, 
+    "Hash" -> "291043ff-2891-4356-987e-016840ea081a", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> "Graphics3D[Scale[{mesh, \
 Cylinder[{{0.0053`,-0.0088`,0.0077`},{0.0017`,0.0902`,0.0119`}}, 0.7/30.0]}, \
 100], \"OrthographicCameraZoom\"->5]", "Display" -> "codemirror", 
-    "Hash" -> "fafadd6a-177f-4306-80db-93bcf3884d55", "Invisible" -> False, 
+    "Hash" -> "0428e73c-f881-43dd-86d1-76e40160ca24", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Input", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> ".md\n\n<img \
 src=\"/attachments/dragGizmo-ezgif.com-speed-68c.gif\" \
 width=\"400\"/>\n\n:::tip\nUse helper tools such as __drag gizmo__ from the \
 command palette. Apply it on the selected <code>{x,y,z}</code>\n:::", 
     "Display" -> "codemirror", "Hash" -> 
-     "1c479e35-fe79-4cf8-a143-4b957cc5adfc", "Invisible" -> False, 
+     "4624b3ae-e0ff-44e8-9ffe-27c5384f50f7", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, 
     "PublicFields" -> {"Properties"}, "State" -> "Idle", "Type" -> "Input", 
-    "UID" -> Null, "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "UID" -> Null, "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> "<img src=\"/attachments/dragGizmo-ezgif.com-speed-68c.gif\" \
 width=\"400\"/>\n\n:::tip\nUse helper tools such as __drag gizmo__ from the \
 command palette. Apply it on the selected <code >{x,y,z}</code>\n:::", 
     "Display" -> "markdown", "Hash" -> 
-     "309e2de9-9d2e-4125-b9cf-7887d1148ecf", "Invisible" -> False, 
+     "c3eed18e-1c57-429a-b7d2-289c41ce8551", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> ".md\nCreate a region function for faster processing:", 
     "Display" -> "codemirror", "Hash" -> 
-     "c5cef78c-f564-414c-8470-c470e489e86b", "Invisible" -> False, 
+     "44bf9baf-34a7-498e-abb8-863241aa3b87", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, 
     "PublicFields" -> {"Properties"}, "State" -> "Idle", "Type" -> "Input", 
-    "UID" -> Null, "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "UID" -> Null, "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> "Create a region function for faster processing:", 
     "Display" -> "markdown", "Hash" -> 
-     "73bc8b43-7071-43e0-93e5-409b4c49f641", "Invisible" -> False, 
+     "1c6b8b2c-5fc0-4c4c-8444-84beaef6c62c", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> "f = \
 RegionMember[Cylinder[{{0.0053`,-0.0088`,0.0077`},{0.0017`,0.0902`,0.0119`}}, \
 0.7/30.0]]", "Display" -> "codemirror", 
-    "Hash" -> "9ac89d24-e4ab-4f9b-9fb0-22e0a8707eda", "Invisible" -> False, 
+    "Hash" -> "2df5339d-a365-4392-ae7a-76e6f94f7e91", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Input", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> "RegionMemberFunction[(*VB[*) Cylinder[{{0.0053, -0.0088, \
 0.0077}, {0.0017, 0.0902, 0.0119}}, 0.02333333333333333], 3, \
 Function[{\\[FormalA]}, 0 <= 0.08726351763700724 - \
@@ -17945,103 +17945,103 @@ x8zHzfzPBjbgbdsaMsy+x1kCe9WWgjPx+NoWpE6L2U1GyDzQ7izEWQhdHKtQpW3DhPRQome0G7wbV\
 3dBDY3wZ7VpA5ZU2ZE0bneU3K+5yQuyavq6YqGlbPygLYYTxyHGTJrUvd1R7PD8erQ7ni+NVfhqyV\
 AwJwNU6BS1SWa/UwTavnMQbutInTiTAef9ECUncW5KNbPuNaA/bRqn4ZOh/QT2OBFN6U2O7cd+Pxb\
 7LJbm0MMP+IZU/i+6mw+A11xXS7\"*)(*]VB*)]", "Display" -> "codemirror", 
-    "Hash" -> "2299db57-c87b-4d14-b5e5-015e3067ef27", "Invisible" -> False, 
+    "Hash" -> "e15b38e7-84da-4d38-9cc5-4170446ef0a4", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> ".md\nFilter splats \|01fadf\n\n> Note that filtering function \
 accepts\n> <code>[index, center, scales, quaternions, opacity, color]</code>"\
 , "Display" -> "codemirror", "Hash" -> 
-     "22549558-3a49-4f5e-a439-de9ad74fcd00", "Invisible" -> False, 
+     "780c2b3b-8859-48fc-b80e-fbe8f20fe57c", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, 
     "PublicFields" -> {"Properties"}, "State" -> "Idle", "Type" -> "Input", 
-    "UID" -> Null, "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "UID" -> Null, "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> "Filter splats \|01fadf\n\n> Note that filtering function \
 accepts\n><code >[index, center, scales, quaternions, opacity, color]</code>"\
-, "Display" -> "markdown", "Hash" -> "6b9a2716-172d-4e86-8dbf-148b86dfed62", 
+, "Display" -> "markdown", "Hash" -> "63e5b4a9-83d7-47b2-a39c-869c815df66f", 
     "Invisible" -> False, "MetaOnly" -> False, "Props" -> <||>, 
     "PublicFields" -> {"Properties"}, "State" -> "Idle", "Type" -> "Output", 
-    "UID" -> Null, "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "UID" -> Null, "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> "filtered = SplatMeshFilter[mesh, \
 (f[#2])&];\nGraphics3D[filtered, \"OrthographicCameraZoom\"->26]", 
     "Display" -> "codemirror", "Hash" -> 
-     "0a7ffe42-5126-40cf-94d6-c36da98d9c3e", "Invisible" -> False, 
+     "862d4c53-67fa-48ff-9f4f-6238b69f6843", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Input", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> "(*VB[*)(FrontEndRef[\"a0ba956a-15c3-473c-8de4-b424a2c988da\"]\
 )(*,*)(*\"1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxokJ\
 VqamiXqGpomG+uamBsn61qkpJroJpkYmSQaJVtaWKQkAgCGbhXO\"*)(*]VB*)", 
     "Display" -> "codemirror", "Hash" -> 
-     "00b03a45-daaf-426d-8584-68098aaec3db", "Invisible" -> False, 
+     "183b3358-08e6-43e6-8312-5765dbbaace4", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> ".md\n*Try to zoom in* \|01f4a1", "Display" -> "codemirror", 
-    "Hash" -> "da249154-f492-402e-a7cf-23eaaee05083", "Invisible" -> False, 
+    "Hash" -> "a7da5785-b35c-4fa8-95e6-9a855949e64e", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, 
     "PublicFields" -> {"Properties"}, "State" -> "Idle", "Type" -> "Input", 
-    "UID" -> Null, "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "UID" -> Null, "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> "*Try to zoom in* \|01f4a1", "Display" -> "markdown", 
-    "Hash" -> "09bb29e0-9b9f-4bf0-911b-f405ac87224e", "Invisible" -> False, 
+    "Hash" -> "d28451a8-7a81-4377-804b-7684c9b558a1", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> 
      ".md\nPreview using 3D points (compatible with \:2728 Mathematica \
 \:2728)", "Display" -> "codemirror", 
-    "Hash" -> "e65b6328-ef50-4377-a634-625aa1dd57db", "Invisible" -> False, 
+    "Hash" -> "a291d74e-45a7-4541-b342-290575cb5348", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, 
     "PublicFields" -> {"Properties"}, "State" -> "Idle", "Type" -> "Input", 
-    "UID" -> Null, "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "UID" -> Null, "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> 
      "Preview using 3D points (compatible with \:2728 Mathematica \:2728)", 
     "Display" -> "markdown", "Hash" -> 
-     "7a0adce2-c45d-49f7-80af-091e453d6cd7", "Invisible" -> False, 
+     "e09f02a3-4b72-4ce9-99d7-24eb2be31830", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> "filtered[\"Preview\"]", "Display" -> "codemirror", 
-    "Hash" -> "62b7a6a4-97e6-4c80-b868-ac51ebbedae5", "Invisible" -> False, 
+    "Hash" -> "a4e4e435-b423-4106-904c-49610a0d2195", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Input", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> "(*VB[*)(FrontEndRef[\"2cbcc7c3-ed38-49e7-bdb1-2bc78bd54719\"]\
 )(*,*)(*\"1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGyUnJ\
 SebJxvrpqYYW+iaWKaa6yalJBnqGiUlm1skpZiamBtaAgCW/hY5\"*)(*]VB*)", 
     "Display" -> "codemirror", "Hash" -> 
-     "b11c2feb-2220-4ffa-bc28-14788dc85966", "Invisible" -> False, 
+     "02eb3a15-4429-448f-9235-c1d828b17e4f", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> ".md\nExport our modified model:", "Display" -> "codemirror", 
-    "Hash" -> "59b59dde-51b6-41ea-8389-30d60358ae7c", "Invisible" -> False, 
+    "Hash" -> "759d912d-b4eb-4bdf-a4fe-ce49631ea566", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, 
     "PublicFields" -> {"Properties"}, "State" -> "Idle", "Type" -> "Input", 
-    "UID" -> Null, "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "UID" -> Null, "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> "Export our modified model:", "Display" -> "markdown", 
-    "Hash" -> "3e168794-c8e3-4ddd-ad4f-41b21ecb299a", "Invisible" -> False, 
+    "Hash" -> "4499fe73-9ccc-4ff2-ac22-894b114385cb", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> "Export[\"filtered.spz\", filtered, \"SPZ\"]", 
     "Display" -> "codemirror", "Hash" -> 
-     "d8b097ae-634e-48b6-a90e-9f0aeae452f2", "Invisible" -> False, 
+     "1623370a-3ac6-41d0-bca0-a6a665f500e1", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Input", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> ".md\n:::tip\nSee \
 [README.md](https://github.com/JerryI/wl-splatmesh) for more API \
 features\n:::", "Display" -> "codemirror", 
-    "Hash" -> "f64e37f7-330e-48a4-83e4-de9212e91171", "Invisible" -> False, 
+    "Hash" -> "b9b88ab0-4f8a-40b0-b086-cbce16c102a6", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, 
     "PublicFields" -> {"Properties"}, "State" -> "Idle", "Type" -> "Input", 
-    "UID" -> Null, "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>, 
+    "UID" -> Null, "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>, 
    <|"Data" -> ":::tip\nSee \
 [README.md](https://github.com/JerryI/wl-splatmesh) for more API \
 features\n:::", "Display" -> "markdown", 
-    "Hash" -> "f612737d-04da-49ff-9f37-fc683d87dd32", "Invisible" -> False, 
+    "Hash" -> "c2d79b10-c4e9-49c6-9ac2-6b3d5842d4b3", "Invisible" -> False, 
     "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
     "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
-    "Notebook" -> "19461323-cb24-4538-9115-aa9f2d5851e8"|>}, 
+    "Notebook" -> "a5f39715-c462-487f-848e-dfb15810accd"|>}, 
  "serializer" -> "jsfn4"|>
