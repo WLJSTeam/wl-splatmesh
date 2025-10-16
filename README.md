@@ -69,7 +69,7 @@ Needs["CoffeeLiqueur`Workshop`SplatMesh`"]
 
 ```mathematica
 LPMRepositories[{
-    "Github" -> "https://github.com/JerryI/wl-splatmesh"
+    "Github" -> "https://github.com/JerryI/wl-splatmesh" -> "master"
 }];
 
 Needs["CoffeeLiqueur`Workshop`SplatMesh`"]
