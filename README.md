@@ -75,6 +75,13 @@ LPMRepositories[{
 Needs["CoffeeLiqueur`Workshop`SplatMesh`"]
 ```
 
+### Globally as a paclet
+Using native WL's `PacletInstall`
+
+```mathematica
+PacletInstall["https://github.com/JerryI/wl-splatmesh/releases/download/v1.0.0/CoffeeLiqueur__SplatMesh-1.0.0.paclet"]
+```
+
 ## Quick examples
 
 Import a file and preview it:
