@@ -9,7 +9,7 @@ SplatMesh is a small Wolfram Language paclet for importing, manipulating, and ex
 ## Supported Environments
 - [x] [Mathematica](https://www.wolfram.com/mathematica/) (no 3D render, only point clouds)
 - [x] [WolframScript](https://www.wolfram.com/engine/) *Freeware!*
-- [x] [WLJS Notebook](https://wljs.io/) *Freeware!*
+- [x] [WLJS Notebook](https://wljs.io/) (requires >= 2.8.7) *Freeware!*
 
 ## A note for WLJS Notebook users
 This paclet is intentionally tiny and designed to integrate with open-source [Spark.js](https://sparkjs.dev/) ✨ library for GPU-based rendering in browser contexts. Since WLJS Notebook is a web-based app, **you can fully render and integrate Gaussian splats with your Graphics3D routies**
