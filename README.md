@@ -26,7 +26,8 @@ This also means, that `Scale`, `GeometricTransform`, `Translate` and etc express
 
 *Captured on iPhone and imported directly to WLJS*
 
-See [**online demo**]() 🕹️
+See [**online demo 1**](https://jerryi.github.io/wl-splatmesh/Example%201.html) 🕹️
+See [**online demo 2**](https://jerryi.github.io/wl-splatmesh/Example%202.html) 🕹️
 
 ## Contents
 
